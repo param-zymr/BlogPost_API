@@ -17,13 +17,12 @@ import lombok.Setter;
 public class PostViews {
     //Post Views DB Model Class
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     @OneToOne
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
     @Column(nullable = false)

@@ -22,13 +22,12 @@ import java.util.List;
 public class Post {
     //Post DB Model Class
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(nullable = false)
@@ -38,19 +37,19 @@ public class Post {
     private List<PostLikes> postLikes;
 
     @OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
-    private List<PostDescription> postDescription;
+    private PostDescription postDescription;
 
     @OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
-    private List<PostShortDescription> postShortDescription;
+    private PostShortDescription postShortDescription;
 
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private List<PostComments> postComments;
 
     @OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
-    private List<PostViews> postViews;
+    private PostViews postViews;
 
     @OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
-    private List<PostTags> postTags;
+    private PostTags postTags;
 
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private List<UserViews> userViews;
@@ -64,6 +63,10 @@ public class Post {
     @Column(name = "updated_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
             nullable = false)
     private Instant updatedOn;
+
+    @Column(name = "is_deleted", columnDefinition = "BOOLEAN DEFAULT FALSE",
+            nullable = false)
+    private Boolean isDeleted;
 
     //Getter and Setters
 }

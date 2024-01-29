@@ -18,18 +18,16 @@ import lombok.Setter;
 public class PostTags {
     //Post Tags DB Model Class
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     @ManyToOne
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-    @Column(nullable = false)
     @ManyToOne
-    @JoinColumn(name = "tag_id")
+    @JoinColumn(name = "tag_id", nullable = false)
     private Tags tag;
 
     //Getter and Setters

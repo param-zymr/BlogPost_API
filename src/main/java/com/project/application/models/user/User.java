@@ -49,9 +49,8 @@ public class User {
             nullable = false)
     private Instant updatedOn;
 
-    @Column(nullable = false)
     @ManyToOne
-    @JoinColumn(name = "user_role_id")
+    @JoinColumn(name = "user_role_id", nullable = false)
     private UserRoles userRole;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
