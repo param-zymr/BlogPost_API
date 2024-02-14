@@ -2,17 +2,19 @@
  * Admin Roles DB Model
  */
 
-package com.project.application.models.user;
+package com.project.application.entities.user;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "ADMIN_ROLES")
 public class AdminRoles {
     //Admin Roles DB Model Class

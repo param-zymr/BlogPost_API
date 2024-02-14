@@ -1,22 +1,24 @@
 /**
- * Post Comments DB Model
+ * User Views DB Model
  */
 
-package com.project.application.models.post;
+package com.project.application.entities.user;
 
-import com.project.application.models.user.User;
+import com.project.application.entities.post.Post;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
-@Table(name = "POST_COMMENTS")
-public class PostComments {
-    //Post Comments DB Model Class
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "USER_VIEWS")
+public class UserViews {
+    //User Views DB Model Class
     @Id
     @Column(nullable = false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +32,5 @@ public class PostComments {
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-    @Column(nullable = false)
-    private String comment;
-
     //Getter and Setters
 }
-

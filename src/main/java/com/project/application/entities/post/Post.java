@@ -2,11 +2,12 @@
  * Post DB Model
  */
 
-package com.project.application.models.post;
+package com.project.application.entities.post;
 
-import com.project.application.models.user.User;
-import com.project.application.models.user.UserViews;
+import com.project.application.entities.user.User;
+import com.project.application.entities.user.UserViews;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +15,11 @@ import lombok.Setter;
 import java.time.Instant;
 import java.util.List;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "POSTS")
 public class Post {
     //Post DB Model Class

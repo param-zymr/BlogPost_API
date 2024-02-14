@@ -2,12 +2,13 @@
  * User DB Model
  */
 
-package com.project.application.models.user;
+package com.project.application.entities.user;
 
-import com.project.application.models.post.Post;
-import com.project.application.models.post.PostComments;
-import com.project.application.models.post.PostLikes;
+import com.project.application.entities.post.Post;
+import com.project.application.entities.post.PostComments;
+import com.project.application.entities.post.PostLikes;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,10 +16,11 @@ import lombok.Setter;
 import java.time.Instant;
 import java.util.List;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "USERS")
 public class User {
     //User DB Model Class
@@ -34,11 +36,9 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    private String passwordSalt;
+    private String password;
 
-    @Column(nullable = false)
-    private String passwordHash;
-
+    @Column(name = "profile_photo")
     private String profilePhoto;
 
     @Column(name = "created_on", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",

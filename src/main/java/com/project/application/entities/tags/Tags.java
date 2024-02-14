@@ -2,10 +2,11 @@
  * Tags DB Model
  */
 
-package com.project.application.models.tags;
+package com.project.application.entities.tags;
 
-import com.project.application.models.post.PostTags;
+import com.project.application.entities.post.PostTags;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,10 +14,11 @@ import lombok.Setter;
 import java.time.Instant;
 import java.util.List;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "TAGS")
 public class Tags {
     //Tags DB Model Class

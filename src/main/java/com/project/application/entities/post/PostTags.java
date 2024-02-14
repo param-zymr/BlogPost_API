@@ -1,33 +1,36 @@
 /**
- * Post Short Description DB Model
+ * Post Tags DB Model
  */
 
-package com.project.application.models.post;
+package com.project.application.entities.post;
 
+import com.project.application.entities.tags.Tags;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
-@NoArgsConstructor
 @Entity
-@Table(name = "POST_SHORT_DESCRIPTION")
-public class PostShortDescription {
-    //Post Short Description DB Model Class
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "POST_TAGS")
+public class PostTags {
+    //Post Tags DB Model Class
     @Id
     @Column(nullable = false, unique=true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-    @Column(nullable = false)
-    private String shortDescription;
+    @ManyToOne
+    @JoinColumn(name = "tag_id", nullable = false)
+    private Tags tag;
 
     //Getter and Setters
 }
-
