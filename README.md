@@ -1,2 +1,2 @@
 # BlogPost Application Backend API
-BlogPost web application backend APIs
+BlogPost application backend APIs using SpringBoot
