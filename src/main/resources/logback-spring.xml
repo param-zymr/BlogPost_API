@@ -2,21 +2,20 @@
 <configuration>
 
     <property name="LOGS_DIR" value="./logs" />
-    <property name="LOG_FILE_NAME" value="application_logs.log" />
-    <property name="LOG_PATTERN" value="%black(%d{ISO8601}) %highlight(%-5level)
-                                        [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable" />
+    <property name="LOG_FILE_NAME" value="app_logs.log" />
+    <property name="LOG_PATTERN_CONSOLE" value="[%d{ISO8601}] %highlight(%-5level) [%yellow(%t)]: %msg%n%throwable" />
+    <property name="LOG_PATTERN_FILE" value="[%d{ISO8601}] %-5level [%t]: %msg%n%throwable" />
 
-    <appender name="Console"
-              class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>${LOG_PATTERN}</Pattern>
+            <Pattern>${LOG_PATTERN_CONSOLE}</Pattern>
         </layout>
     </appender>
 
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS_DIR}/${LOG_FILE_NAME}</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>${LOG_PATTERN}</Pattern>
+            <Pattern>${LOG_PATTERN_FILE}</Pattern>
         </encoder>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
